@@ -1,3 +1,14 @@
+const anoAtual = new Date().getFullYear();
+const anosExperiencia = anoAtual - 2023;
+const projetosConcluidos = 5+'+';
+const melhoriasRealizadas = 100+'+';
+
+
+document.getElementById('qntsAnosExperiencia').innerHTML = anosExperiencia;
+document.getElementById('qntsProjetosConcluidos').innerHTML = projetosConcluidos;
+document.getElementById('qntsMelhoriasRealizadas').innerHTML = melhoriasRealizadas;
+document.getElementById('year').innerHTML = anoAtual;
+
 // Espera o DOM ser completamente carregado
 document.addEventListener('DOMContentLoaded', function() {
   // ===== Scroll Indicator =====

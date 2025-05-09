@@ -80,8 +80,8 @@ body {
 }
 
 .profile-image {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border-radius: 12px;
   object-fit: cover;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
@@ -212,12 +212,12 @@ p {
   display: flex;
   gap: 30px;
   margin-top: 20px;
-  opacity: 0.7;
+  opacity: 0.9;
   flex-wrap: wrap;
 }
 
 .brand-logo {
-  height: 30px;
+  height: 80px;
   transition: all 0.3s ease;
 }
 
