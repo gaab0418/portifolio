@@ -80,8 +80,8 @@ body {
 }
 
 .profile-image {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border-radius: 12px;
   object-fit: cover;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
@@ -212,18 +212,65 @@ p {
   display: flex;
   gap: 30px;
   margin-top: 20px;
-  opacity: 0.7;
+  opacity: 1;
   flex-wrap: wrap;
 }
 
 .brand-logo {
   height: 30px;
   transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
 }
 
 .brand-logo:hover {
   opacity: 1;
   transform: scale(1.1);
+}
+
+/* Custom tooltip styles */
+.brand-logo-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  background: linear-gradient(135deg, #5c6bc0, #3a49ab);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 9999;
+  pointer-events: none;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tooltip.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #3a49ab;
 }
 
 .projects {
@@ -359,6 +406,17 @@ p {
 
 .contact-text {
   font-size: 14px;
+}
+
+.contact-link {
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 .contact-support {
@@ -528,6 +586,7 @@ footer {
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.3s ease;
+  height: 400px;
 }
 
 .work-item:hover {
@@ -544,21 +603,80 @@ footer {
 }
 
 .work-image {
-  height: 100%;
-  min-height: 300px;
+  height: 400px;
+  width: 100%;
   background-color: var(--dark-secondary);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .work-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   transition: transform 0.5s ease;
 }
 
 .work-item:hover .work-image img {
   transform: scale(1.05);
+}
+
+/* Spoiler gradient background */
+.spoiler-gradient {
+  background: linear-gradient(135deg, #1b5e20, #2e7d32, #388e3c);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.spoiler-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.spoiler-icon {
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 8px;
+  z-index: 1;
+  position: relative;
+}
+
+.spoiler-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 1;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 4px 12px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.work-item:hover .spoiler-icon {
+  transform: scale(1.05);
+  color: rgba(255, 255, 255, 1);
+}
+
+.work-item:hover .spoiler-text {
+  transform: scale(1.02);
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .work-content {
@@ -733,8 +851,12 @@ footer {
     direction: ltr;
   }
 
+  .work-item {
+    height: 300px;
+  }
+
   .work-image {
-    min-height: 200px;
+    height: 300px;
   }
 
   .nav-dots {

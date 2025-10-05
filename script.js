@@ -104,52 +104,47 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Define skill tags for each category
     const skillTagsData = {
-      'Expertise': [
-        { icon: 'fa-user', text: 'User Experience' },
-        { icon: 'fa-display', text: 'User Interface' },
-        { icon: 'fa-pencil', text: 'Art Direction' },
-        { icon: 'fa-shapes', text: 'Motion Design' },
-        { icon: 'fa-palette', text: 'Branding' },
-        { icon: 'fa-globe', text: 'Web Design' },
-        { icon: 'fa-list-check', text: 'Project Management' }
+      'Linguagens': [
+        { icon: 'fa-solid fa-code', text: 'ADVPL' }, // ⚠️ Sem ícone oficial
+        { icon: 'fa-brands fa-python', text: 'Python' },
+        { icon: 'fa-brands fa-java', text: 'Java' },
+        { icon: 'fa-brands fa-js', text: 'JavaScript' },
+        { icon: 'fa-solid fa-moon', text: 'Lua' }
       ],
-      'Software': [
-        { icon: 'fa-figma', text: 'Figma' },
-        { icon: 'fa-adobe', text: 'Adobe XD' },
-        { icon: 'fa-photoshop', text: 'Photoshop' },
-        { icon: 'fa-illustrator', text: 'Illustrator' },
-        { icon: 'fa-sketch', text: 'Sketch' },
-        { icon: 'fa-code', text: 'HTML/CSS' },
-        { icon: 'fa-js', text: 'JavaScript' }
+      'Bancos de Dados': [
+        { icon: 'fa-solid fa-database', text: 'Oracle' },
+        { icon: 'fa-solid fa-database', text: 'MySQL' },
+        { icon: 'fa-solid fa-database', text: 'PostgreSQL' }
       ],
-      'Language': [
-        { icon: 'fa-flag-usa', text: 'English (Native)' },
-        { icon: 'fa-flag', text: 'Spanish (Fluent)' },
-        { icon: 'fa-flag', text: 'French (Intermediate)' },
-        { icon: 'fa-flag', text: 'German (Basic)' }
+      'Ferramentas': [
+        { icon: 'fa-brands fa-node-js', text: 'Node.js' },
+        { icon: 'fa-solid fa-plug', text: 'APIs REST' },
+        { icon: 'fa-solid fa-leaf', text: 'Spring' },
+        { icon: 'fa-solid fa-link', text: 'Integrações' },
+        { icon: 'fa-brands fa-react', text: 'React' },
+        { icon: 'fa-solid fa-wind', text: 'TailwindCSS' }, // ⚠️ Sem ícone oficial
+        { icon: 'fa-solid fa-paper-plane', text: 'Postman' } // ⚠️ Sem ícone oficial
+      ],
+      'IA/Automação': [
+        { icon: 'fa-solid fa-robot', text: 'IA/ML' },
+        { icon: 'fa-solid fa-brain', text: 'Machine Learning' },
+        { icon: 'fa-solid fa-diagram-project', text: 'N8N' }, // ⚠️ Sem ícone oficial
+        { icon: 'fa-solid fa-bolt', text: 'Automação' }
       ]
     };
     
     function updateSkillTags(category) {
       skillTagsContainer.innerHTML = '';
       
-      // Handle font awesome icon classes that might be missing
-      const iconMap = {
-        'fa-figma': 'fa-f',
-        'fa-adobe': 'fa-a',
-        'fa-photoshop': 'fa-p',
-        'fa-illustrator': 'fa-i',
-        'fa-sketch': 'fa-s',
-        'fa-flag-usa': 'fa-flag',
-      };
+      const skillsToShow = skillTagsData[category] || skillTagsData['Linguagens'];
       
-      const skillsToShow = skillTagsData[category] || skillTagsData['Expertise'];
-      
-      skillsToShow.forEach(skill => {
-        const iconClass = iconMap[skill.icon] || skill.icon;
+      skillsToShow.forEach((skill, index) => {
         const skillTag = document.createElement('div');
         skillTag.className = 'skill-tag';
-        skillTag.innerHTML = `<i class="fa-solid ${iconClass}"></i> ${skill.text}`;
+        
+        // Check if icon already has class prefix, otherwise add fa-solid
+        const iconClass = skill.icon.includes('fa-') ? skill.icon : `fa-solid ${skill.icon}`;
+        skillTag.innerHTML = `<i class="${iconClass}"></i> ${skill.text}`;
         
         // Add animation effect
         skillTag.style.opacity = '0';
@@ -162,22 +157,20 @@ document.addEventListener('DOMContentLoaded', function() {
           skillTag.style.transition = 'all 0.3s ease';
           skillTag.style.opacity = '1';
           skillTag.style.transform = 'translateY(0)';
-        }, 50);
+        }, index * 50);
       });
-      
-      // Add the "New" tag at the end
-      const newTag = document.createElement('div');
-      newTag.className = 'skill-tag';
-      newTag.innerHTML = '<i class="fa-solid fa-plus"></i> New';
-      skillTagsContainer.appendChild(newTag);
     }
+    
+    // Initialize with first category (Linguagens)
+    updateSkillTags('Linguagens');
     
     skillCategories.forEach(category => {
       category.addEventListener('click', function() {
         skillCategories.forEach(c => c.classList.remove('active'));
         this.classList.add('active');
         
-        const categoryName = this.textContent.trim().replace(/ .*/, '');
+        // Get category name from text content (remove icon)
+        const categoryName = this.textContent.trim();
         updateSkillTags(categoryName);
       });
     });
@@ -344,4 +337,87 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
+  
+  // ===== Dynamic Footer =====
+  const footer = document.getElementById('footer');
+  if (footer) {
+    const currentYear = new Date().getFullYear();
+    footer.innerHTML = `© ${currentYear} Gabriel Chiarelli - Desenvolvedor Back-End. Todos os direitos reservados.`;
+  }
+  
+  // ===== Copy Email to Clipboard =====
+  const emailCopy = document.getElementById('email-copy');
+  if (emailCopy) {
+    emailCopy.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const email = this.getAttribute('data-email');
+      
+      // Copy to clipboard
+      navigator.clipboard.writeText(email).then(() => {
+        // Create tooltip notification
+        const tooltip = document.createElement('div');
+        tooltip.textContent = 'Email copiado!';
+        tooltip.style.position = 'fixed';
+        tooltip.style.left = '50%';
+        tooltip.style.bottom = '30px';
+        tooltip.style.transform = 'translateX(-50%)';
+        tooltip.style.backgroundColor = '#5c6bc0';
+        tooltip.style.color = 'white';
+        tooltip.style.padding = '12px 24px';
+        tooltip.style.borderRadius = '8px';
+        tooltip.style.fontSize = '14px';
+        tooltip.style.fontWeight = '600';
+        tooltip.style.zIndex = '10000';
+        tooltip.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.3)';
+        tooltip.style.transition = 'opacity 0.3s ease';
+        
+        document.body.appendChild(tooltip);
+        
+        // Remove tooltip after 2 seconds
+        setTimeout(() => {
+          tooltip.style.opacity = '0';
+          setTimeout(() => document.body.removeChild(tooltip), 300);
+        }, 2000);
+      }).catch(err => {
+        console.error('Erro ao copiar email:', err);
+        alert('Erro ao copiar email. Por favor, copie manualmente: ' + email);
+      });
+    });
+  }
+  
+  // ===== Tooltip functionality for technology logos =====
+  const brandLogos = document.querySelectorAll('.brand-logo');
+  
+  brandLogos.forEach(logo => {
+    // Create wrapper
+    const wrapper = document.createElement('span');
+    wrapper.className = 'brand-logo-wrapper';
+    
+    // Wrap the logo
+    logo.parentNode.insertBefore(wrapper, logo);
+    wrapper.appendChild(logo);
+    
+    // Create tooltip element
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tooltip';
+    const titleText = logo.getAttribute('title');
+    tooltip.textContent = titleText;
+    
+    // Remove title attribute to prevent default browser tooltip
+    logo.removeAttribute('title');
+    
+    // Add tooltip to wrapper
+    wrapper.appendChild(tooltip);
+    
+    // Show tooltip on mouse enter
+    wrapper.addEventListener('mouseenter', function() {
+      tooltip.classList.add('show');
+    });
+    
+    // Hide tooltip on mouse leave
+    wrapper.addEventListener('mouseleave', function() {
+      tooltip.classList.remove('show');
+    });
   });
+});
