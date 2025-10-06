@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
 import ScrollIndicator from './components/ScrollIndicator';
 import NavigationDots from './components/NavigationDots';
+import ThemeToggle from './components/ThemeToggle';
 import Header from './components/Header';
 import About from './components/About';
 import Stats from './components/Stats';
@@ -12,14 +12,17 @@ import RecentWorks from './components/RecentWorks';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import useScrollAnimations from './hooks/useScrollAnimations';
+import useTheme from './hooks/useTheme';
 
 function App() {
   useScrollAnimations();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <>
       <ScrollIndicator />
       <NavigationDots />
+      <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
       
       <div className="container">
         <Header />

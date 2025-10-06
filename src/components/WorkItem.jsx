@@ -1,17 +1,6 @@
-import { useState } from 'react';
-
 export default function WorkItem({ image, category, title, description, tags, link, isSpoiler }) {
-  const [hovered, setHovered] = useState(false);
-
   return (
-    <div 
-      className="work-item animate-fade-in"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        backgroundColor: hovered ? 'rgba(40, 40, 40, 0.7)' : 'rgba(30, 30, 30, 0.5)'
-      }}
-    >
+    <div className="work-item animate-fade-in">
       <div className={`work-image ${isSpoiler ? 'spoiler-gradient' : ''}`}>
         {isSpoiler ? (
           <>
