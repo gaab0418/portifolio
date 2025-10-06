@@ -699,7 +699,7 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  min-height: 420px;
+  height: 380px;
 }
 
 .work-item:hover {
@@ -730,7 +730,7 @@ p {
 
 .work-image {
   width: 100%;
-  height: 100%;
+  height: 380px;
   background: var(--bg-tertiary);
   display: flex;
   align-items: center;
@@ -747,8 +747,9 @@ p {
 .work-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1rem;
 }
 
 .work-item:hover .work-image img {
@@ -762,6 +763,7 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 380px;
 }
 
 .spoiler-gradient::before {
@@ -800,10 +802,30 @@ p {
 }
 
 .work-content {
-  padding: 2.5rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 380px;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for work-content */
+.work-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.work-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.work-content::-webkit-scrollbar-thumb {
+  background: rgba(147, 51, 234, 0.3);
+  border-radius: 3px;
+}
+
+.work-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(147, 51, 234, 0.5);
 }
 
 .work-category {
@@ -1167,7 +1189,7 @@ footer {
 
   .work-item {
     grid-template-columns: 1fr;
-    min-height: auto;
+    height: auto;
   }
 
   .work-item:nth-child(even) {
@@ -1175,11 +1197,14 @@ footer {
   }
 
   .work-image {
+    height: 250px;
     min-height: 250px;
   }
   
   .work-content {
-    padding: 2rem;
+    padding: 1.5rem;
+    height: auto;
+    min-height: 300px;
   }
   
   .timeline-container {
