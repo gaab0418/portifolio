@@ -1,67 +1,76 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
+import { Box } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { motion } from 'framer-motion';
 import { skillsData } from '../data/portfolioData';
+import SectionHeading from './common/SectionHeading';
+import Badge from './common/Badge';
+import Tag from './common/Tag';
 
-function SkillTag({ icon, text, delay }) {
-  const [isVisible, setIsVisible] = useState(false);
+const StyledSection = styled(Box)({
+  padding: '5rem 0',
+});
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, delay);
+const StyledCategories = styled(Box)({
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: '0.75rem',
+  justifyContent: 'center',
+  marginBottom: '2rem',
+});
 
-    return () => clearTimeout(timer);
-  }, [delay]);
+const StyledTags = styled(Box)({
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: '0.9rem',
+  justifyContent: 'center',
+});
 
-  return (
-    <div 
-      className="skill-tag"
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(10px)',
-        transition: 'all 0.3s ease'
-      }}
-    >
-      <i className={icon}></i> {text}
-    </div>
-  );
-}
+const categoryIcons = {
+  'IA & Automação': 'fa-solid fa-robot',
+  'Back-end & APIs': 'fa-solid fa-code',
+  'Data & Infra': 'fa-solid fa-database',
+  'Ferramentas & UX': 'fa-solid fa-wand-magic-sparkles'
+};
 
 export default function Skills() {
-  const [activeCategory, setActiveCategory] = useState('Linguagens');
-  const categories = Object.keys(skillsData);
-
-  const categoryIcons = {
-    'Linguagens': 'fa-solid fa-code',
-    'Bancos de Dados': 'fa-solid fa-database',
-    'Ferramentas': 'fa-solid fa-tools',
-    'IA/Automação': 'fa-solid fa-robot'
-  };
+  const categories = useMemo(() => Object.keys(skillsData), []);
+  const [activeCategory, setActiveCategory] = useState(categories[0]);
 
   return (
-    <section id="skills" className="skills">
-      <h2><i className="fa-solid fa-code-branch"></i> Habilidades</h2>
-      <div className="skill-categories">
+    <StyledSection component="section" id="skills">
+      <SectionHeading
+        pill="Skills"
+        title="Stack favorita para criar experiências inteligentes"
+        description="Escolha uma categoria para ver as skills que uso diariamente para construir integrações inteligentes."
+      />
+
+      <StyledCategories>
         {categories.map((category) => (
-          <div
+          <Badge
             key={category}
-            className={`skill-category ${activeCategory === category ? 'active' : ''}`}
+            variant="category"
+            icon={categoryIcons[category]}
+            active={activeCategory === category}
             onClick={() => setActiveCategory(category)}
           >
-            <i className={categoryIcons[category]}></i> {category}
-          </div>
+            {category}
+          </Badge>
         ))}
-      </div>
-      <div className="skill-tags">
+      </StyledCategories>
+
+      <StyledTags>
         {skillsData[activeCategory].map((skill, index) => (
-          <SkillTag 
-            key={`${activeCategory}-${index}`}
-            icon={skill.icon}
-            text={skill.text}
-            delay={index * 50}
-          />
+          <motion.div
+            key={`${activeCategory}-${skill.text}`}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.05 }}
+          >
+            <Tag icon={skill.icon}>{skill.text}</Tag>
+          </motion.div>
         ))}
-      </div>
-    </section>
+      </StyledTags>
+    </StyledSection>
   );
 }
-
