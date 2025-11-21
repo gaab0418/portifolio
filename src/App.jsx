@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 import ScrollIndicator from './components/ScrollIndicator';
 import NavigationDots from './components/NavigationDots';
 import ThemeToggle from './components/ThemeToggle';
@@ -15,14 +16,17 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import useScrollAnimations from './hooks/useScrollAnimations';
 import useTheme from './hooks/useTheme';
+import { createCustomTheme } from './theme/theme';
 import { seoData } from './data/portfolioData';
 
 function App() {
   useScrollAnimations();
   const { theme, toggleTheme } = useTheme();
+  const muiTheme = createCustomTheme(theme);
 
   return (
-    <>
+    <ThemeProvider theme={muiTheme}>
+      <CssBaseline />
       <Helmet>
         <title>{seoData.title}</title>
         <meta name="description" content={seoData.description} />
@@ -50,7 +54,7 @@ function App() {
         <Contact />
         <Footer />
       </div>
-    </>
+    </ThemeProvider>
   );
 }
 

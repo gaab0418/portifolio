@@ -1,64 +1,29 @@
-import { motion } from 'framer-motion';
+import { Box, Grid } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { iaAutomationData } from '../data/portfolioData';
+import SectionHeading from './common/SectionHeading';
+import IACard from './IACard';
 
-const cardVariants = {
-  initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0 }
-};
+const StyledSection = styled(Box)({
+  padding: '6rem 0 4rem',
+});
 
 export default function IAAutomation() {
   return (
-    <section id="ia-automation" className="ia-section">
-      <div className="section-heading">
-        <span className="section-pill">IA + Automação</span>
-        <h2>Workflows que pensam, decidem e executam</h2>
-        <p>
-          Misturo IA generativa, integrações profundas e automações N8N para entregar experiências
-          digitais que não travam. Cada card abaixo representa um laboratório vivo em que aplico essas ideias.
-        </p>
-      </div>
+    <StyledSection component="section" id="ia-automation">
+      <SectionHeading
+        pill="IA + Automação"
+        title="Workflows que pensam, decidem e executam"
+        description="Misturo IA generativa, integrações profundas e automações N8N para entregar experiências digitais que não travam. Cada card abaixo representa um laboratório vivo em que aplico essas ideias."
+      />
 
-      <div className="ia-grid">
+      <Grid container spacing={2}>
         {iaAutomationData.map((item, index) => (
-          <motion.article
-            key={item.title}
-            className="ia-card"
-            variants={cardVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ delay: index * 0.1 }}
-          >
-            <div className="ia-card__badge">
-              <i className="fa-solid fa-sparkles"></i> {item.badge}
-            </div>
-
-            <div className="ia-card__icon">
-              <i className={item.icon}></i>
-            </div>
-
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-
-            <div className="ia-card__stack">
-              {item.stack.map((tech) => (
-                <span key={tech}>{tech}</span>
-              ))}
-            </div>
-
-            <div className="ia-card__footer">
-              <span className="ia-card__stat">
-                <i className="fa-solid fa-bolt"></i> {item.stats}
-              </span>
-
-              <a href={item.link} target="_blank" rel="noreferrer">
-                Ver detalhes <i className="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
-            </div>
-          </motion.article>
+          <Grid item xs={12} sm={6} lg={4} key={item.title}>
+            <IACard item={item} index={index} />
+          </Grid>
         ))}
-      </div>
-    </section>
+      </Grid>
+    </StyledSection>
   );
 }
-
