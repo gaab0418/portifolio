@@ -5,7 +5,7 @@ import NavigationDots from './components/NavigationDots';
 import ThemeToggle from './components/ThemeToggle';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
-import IAAutomation from './components/IAAutomation';
+import TechnicalHighlights from './components/TechnicalHighlights';
 import About from './components/About';
 import Stats from './components/Stats';
 import Skills from './components/Skills';
@@ -44,7 +44,7 @@ function App() {
 
       <div className="container">
         <Hero />
-        <IAAutomation />
+        <TechnicalHighlights />
         <About />
         <Stats />
         <Skills />

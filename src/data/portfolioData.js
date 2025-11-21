@@ -1,6 +1,6 @@
 export const navigationLinks = [
   { id: 'hero', label: 'Início' },
-  { id: 'ia-automation', label: 'IA & Automação' },
+  { id: 'technical-highlights', label: 'Destaques Técnicos' },
   { id: 'sobre', label: 'Sobre' },
   { id: 'skills', label: 'Skills' },
   { id: 'recent-works', label: 'Projetos' },
@@ -13,96 +13,107 @@ export const heroData = {
   name: 'Gabriel Chiarelli',
   photoUrl: 'https://avatars.githubusercontent.com/u/108583444?v=4',
   photoAlt: 'Gabriel Chiarelli sorrindo',
-  highlightedRole: 'Back-end & Automation Engineer',
+  highlightedRole: 'Backend Engineer & Integrations',
   typewriterPhrases: [
-    'Crio agentes de IA que entendem o negócio',
-    'Automatizo operações com o ecossistema N8N',
-    'Transformo APIs em produtos inteligentes'
+    'Integro Protheus com APIs REST',
+    'Otimizo queries em Oracle, MySQL e PostgreSQL',
+    'Crio automações confiáveis em ADVPL e Python'
   ],
   description:
-    'Integro IA generativa, APIs e automações N8N para tirar empresas da rotina manual. Minha obsessão é conectar dados, pessoas e máquinas usando código elegante, arquitetura bem pensada e muita criatividade.',
+    'Sou backend developer focado em integrações profundas. Desenho APIs REST, escrevo ADVPL para o Protheus, construo serviços em Python e monitoro tudo para garantir que dados fiscais e operações fluam sem atrito.',
   badges: [
-    { icon: 'fa-solid fa-robot', label: 'AI Enthusiast' },
-    { icon: 'fa-solid fa-diagram-project', label: 'Automation Lover' },
-    { icon: 'fa-solid fa-bolt', label: 'N8N Power User' }
+    { icon: 'fa-solid fa-database', label: 'Oracle • MySQL • PostgreSQL' },
+    { icon: 'fa-solid fa-code', label: 'Backend Specialist' },
+    { icon: 'fa-solid fa-share-nodes', label: 'Integrações Protheus' }
   ],
   ctas: [
-    { label: 'Ver projetos de IA', href: '#ia-automation', variant: 'primary' },
+    { label: 'Ver destaques técnicos', href: '#technical-highlights', variant: 'primary' },
     { label: 'Vamos conversar', href: '#contact', variant: 'ghost' }
   ],
   metrics: [
-    { value: '05+', label: 'Workflows de IA em produção' },
-    { value: '30+', label: 'Integrações inteligentes entregues' },
-    { value: '∞', label: 'Ideias para automatizar processos' }
+    { value: '20+', label: 'APIs REST entregues' },
+    { value: '05+', label: 'Integrações Protheus' },
+    { value: '03', label: 'Bancos em produção' }
   ],
-  availability: 'Aberto para projetos freelas e consultorias em IA/N8N.'
+  availability: 'Aberto para projetos freelas e consultorias em backend e integrações.'
 };
 
-export const iaAutomationData = [
+export const technicalHighlightsData = [
   {
-    title: 'AI Orchestrator para times de suporte',
+    title: 'Integrações corporativas Protheus',
     description:
-      'Plataforma que coordena agentes especialistas em ADVPL, ERP Protheus e APIs externas para resolver tickets automaticamente. Fluxos inteligentes priorizam, consultam bases e enviam respostas human-like.',
-    stack: ['OpenAI', 'Node.js', 'Totvs ADVPL', 'PostgreSQL'],
-    link: 'https://github.com/gaab0418',
-    badge: 'Agente de IA',
-    icon: 'fa-solid fa-headset',
-    stats: '↓ 42% tempo médio de atendimento'
+      'APIs em ADVPL que conectam Protheus, SEFAZ e portais logísticos. Eu desenho o contrato REST, programo o fluxo completo e cuido da observabilidade e dos logs.',
+    stack: ['ADVPL', 'Protheus', 'REST', 'SEFAZ'],
+    link: 'https://github.com/gaab0418/geranf',
+    badge: 'ERP Integrations',
+    icon: 'fa-solid fa-network-wired',
+    stats: 'NF-e emitida via API em minutos'
   },
   {
-    title: 'N8N Hyper Automation Mesh',
+    title: 'Arquitetura de APIs e filas',
     description:
-      'Rede de automações event-driven com N8N orquestrando APIs financeiras, mensageria e alertas em tempo real. Cada workflow é versionado e monitorado com dashboards inteligentes.',
-    stack: ['N8N', 'TypeScript', 'Redis', 'Supabase'],
+      'Serviços Python/FastAPI com autenticação JWT, filas paralelas e monitoramento de downloads. Foco em DX limpa, documentação com Swagger e versionamento cuidadoso.',
+    stack: ['FastAPI', 'Python', 'MySQL', 'JWT'],
     link: 'https://github.com/gaab0418',
-    badge: 'N8N',
-    icon: 'fa-solid fa-diagram-project',
-    stats: '120+ jobs automatizados'
+    badge: 'APIs REST',
+    icon: 'fa-solid fa-server',
+    stats: 'Fila paralela com priorização'
   },
   {
-    title: 'AI Pipeline para decisões fiscais',
+    title: 'Engenharia de dados fiscais',
     description:
-      'Pipeline serverless que consulta modelos, valida regras fiscais e dispara aprovações automáticas. Integra com Protheus, SEFAZ e serviços internos garantindo rastreabilidade total.',
-    stack: ['Python', 'FastAPI', 'LangChain', 'Oracle'],
+      'Modelagem de dados Oracle/PostgreSQL, consultas otimizadas e dashboards para acompanhar indicadores fiscais e de estoque em tempo quase real.',
+    stack: ['Oracle', 'PostgreSQL', 'SQL', 'Observability'],
     link: 'https://github.com/gaab0418',
-    badge: 'AI + APIs',
-    icon: 'fa-solid fa-file-invoice-dollar',
-    stats: 'Processamento 3x mais rápido'
+    badge: 'Data Ops',
+    icon: 'fa-solid fa-database',
+    stats: 'Consultas 40% mais rápidas'
   }
 ];
 
 export const aboutData = {
   title: 'Construindo o próximo capítulo das integrações inteligentes',
   paragraphs: [
-    'Sou o cara que liga os pontos entre ERP, APIs, IA e automação. Minha base é back-end, mas minha paixão é transformar processos manuais em experiências inteligentes.',
-    'Atualmente, estou apaixonado por IA aplicada a negócios, agentes autônomos e automações com N8N. Quero colaborar com equipes que acreditam que o futuro é automatizado, porém humano.'
+    'Sou quem liga os pontos entre ERP, APIs e bases de dados. Minha base é back-end e meu foco é tirar gargalos de times que dependem de integrações confiáveis com Protheus, SEFAZ e serviços corporativos.',
+    'Atualmente, estou aprofundando arquitetura de software, design de APIs e performance em bancos Oracle/PostgreSQL. Quero colaborar com equipes que acreditam que integrações bem pensadas são vantagem competitiva.'
   ],
   highlights: [
-    { label: 'Stack favorita', value: 'Node.js • Python • N8N • Oracle • FastAPI' },
-    { label: 'Foco', value: 'Integrações profundas + automações inteligentes + IA aplicada' }
+    { label: 'Stack favorita', value: 'ADVPL • Python/FastAPI • Node.js • Oracle • PostgreSQL' },
+    { label: 'Foco', value: 'Integrações profundas + APIs escaláveis + observabilidade' }
   ]
 };
 
+const portfolioStart = new Date('2025-01-01T00:00:00Z');
+const msPerYear = 1000 * 60 * 60 * 24 * 365;
+const yearsConnecting = Math.max(1, Math.floor((Date.now() - portfolioStart.getTime()) / msPerYear));
+
 export const statsData = [
-  { number: '2', label: 'anos conectando sistemas' },
+  { number: `${yearsConnecting}`, label: 'anos conectando sistemas' },
   { number: '08+', label: 'tecnologias dominadas' },
   { number: '∞', label: 'automations shipping soon' }
 ];
 
 export const experienceData = [
   {
-    date: '2025 - Atual',
-    title: 'Desenvolvedor Full-Stack • IA & Automação',
-    subtitle: 'Ambiente Empresarial, Brasil',
+    date: 'Set 2025 - Atual',
+    title: 'Assistente de TI • Grupo Krona',
+    subtitle: 'Joinville, Santa Catarina • Híbrido',
     content:
-      'Desenho e implemento plataformas que combinam IA generativa com N8N e APIs internas. Criei automações que monitoram indicadores, acionam workflows e desbloqueiam times de negócios.'
+      'Evoluo o Protheus com ADVPL, desenho APIs REST para emissão de notas e mantenho integrações com SEFAZ e portais de transporte com foco em observabilidade.'
   },
   {
-    date: '2023 - 2025',
-    title: 'Jovem Aprendiz TIC',
-    subtitle: 'Infraestrutura, Brasil',
+    date: 'Fev 2025 - Set 2025',
+    title: 'Estagiário de Desenvolvimento • Grupo Krona',
+    subtitle: 'Joinville, Santa Catarina • Presencial',
     content:
-      'Experiência essencial com infraestrutura, redes e suporte corporativo. Entendi dores reais das operações e transformei isso em contexto para soluções de software mais empáticas.'
+      'Construí customizações do Protheus, apoiei squads de back-office e aprendi a desenhar integrações seguras para dados fiscais e logísticos.'
+  },
+  {
+    date: 'Ago 2023 - Jan 2025',
+    title: 'Aprendiz TIC • Viqua',
+    subtitle: 'Santa Catarina, Brasil',
+    content:
+      'Contato diário com infraestrutura, suporte e redes corporativas. Essa base me ajuda a entender as dores operacionais antes de propor soluções backend.'
   }
 ];
 
@@ -124,27 +135,29 @@ export const educationData = [
 ];
 
 export const skillsData = {
-  'IA & Automação': [
-    { icon: 'fa-solid fa-robot', text: 'Agentes de IA' },
-    { icon: 'fa-solid fa-diagram-project', text: 'N8N' },
-    { icon: 'fa-solid fa-bolt', text: 'Hyper Automation' },
-    { icon: 'fa-solid fa-code-branch', text: 'LangChain' }
-  ],
-  'Back-end & APIs': [
-    { icon: 'fa-solid fa-code', text: 'Node.js' },
+  'Backend & Integrações': [
+    { icon: 'fa-solid fa-code', text: 'ADVPL / Protheus' },
     { icon: 'fa-brands fa-python', text: 'Python / FastAPI' },
-    { icon: 'fa-brands fa-java', text: 'Java / Spring' },
-    { icon: 'fa-solid fa-plug', text: 'GraphQL & REST' }
+    { icon: 'fa-brands fa-node-js', text: 'Node.js' },
+    { icon: 'fa-brands fa-java', text: 'Java / Spring' }
   ],
-  'Data & Infra': [
+  'APIs & Arquitetura': [
+    { icon: 'fa-solid fa-plug', text: 'REST & GraphQL' },
+    { icon: 'fa-solid fa-diagram-project', text: 'Integrações corporativas' },
+    { icon: 'fa-solid fa-shuffle', text: 'Mensageria e filas' },
+    { icon: 'fa-solid fa-lock', text: 'Autenticação & JWT' }
+  ],
+  'Bancos & Dados': [
     { icon: 'fa-solid fa-database', text: 'Oracle' },
+    { icon: 'fa-solid fa-database', text: 'MySQL' },
     { icon: 'fa-solid fa-database', text: 'PostgreSQL' },
-    { icon: 'fa-solid fa-square-poll-vertical', text: 'Observability' }
+    { icon: 'fa-solid fa-chart-line', text: 'Monitoração & logs' }
   ],
-  'Ferramentas & UX': [
-    { icon: 'fa-solid fa-wand-magic-sparkles', text: 'Framer Motion' },
-    { icon: 'fa-brands fa-react', text: 'React' },
-    { icon: 'fa-solid fa-gear', text: 'CI/CD' }
+  'Ferramentas & Entrega': [
+    { icon: 'fa-solid fa-screwdriver-wrench', text: 'Git & CI/CD' },
+    { icon: 'fa-solid fa-cloud', text: 'Docker & Deploy' },
+    { icon: 'fa-solid fa-book', text: 'Documentação técnica' },
+    { icon: 'fa-solid fa-people-group', text: 'Trabalho com squads' }
   ]
 };
 
@@ -157,8 +170,8 @@ export const worksData = [
     category: 'ADVPL',
     title: 'Gerador fiscal inteligente',
     description:
-      'Sistema que conversa com SEFAZ, audita regras fiscais e dispara notas via ADVPL com apoio de um agente de IA que valida documentos em tempo real.',
-    tags: ['ADVPL', 'AI Validation', 'APIs Governamentais'],
+      'WebService REST em ADVPL que integra Protheus e SEFAZ para emitir e devolver NFe com logs detalhados e auditoria de regras fiscais.',
+    tags: ['ADVPL', 'REST', 'APIs Governamentais'],
     link: 'https://github.com/gaab0418/geranf'
   },
   {
@@ -169,7 +182,7 @@ export const worksData = [
     category: 'Automation Mesh',
     title: 'Fluxo multicanal com N8N',
     description:
-      'Hub centralizado que conecta CRMs, gateways e notificações. Cada automação tem observabilidade e rollback inteligente usando N8N.',
+      'Hub centralizado que conecta CRMs, gateways e notificações. Cada automação possui versionamento, rollback e alertas para manter integrações saudáveis.',
     tags: ['N8N', 'Node.js', 'Supabase'],
     link: 'https://github.com/gaab0418'
   },
@@ -181,15 +194,27 @@ export const worksData = [
     category: 'API Experience',
     title: 'SpotDown - Spotify Downloader API',
     description:
-      'API em FastAPI com filas assíncronas e autenticação JWT para baixar e normalizar mídias. Mostra minha preocupação com DX e arquitetura limpa.',
+      'API em FastAPI com filas assíncronas, autenticação JWT e monitoramento de downloads. Demonstra preocupação com arquitetura limpa e DX clara.',
     tags: ['FastAPI', 'JWT', 'FFmpeg'],
     link: 'https://github.com/gaab0418/SpotDown'
+  },
+  {
+    visual: {
+      icon: 'fa-solid fa-scale-balanced',
+      gradient: ['#7F7FD5', '#86A8E7']
+    },
+    category: 'IA + Legislação',
+    title: 'Spoiler - Compliance Copilot',
+    description:
+      'Projeto em desenvolvimento que cruza legislação tributária com agentes de IA para sugerir obrigações e gerar relatórios auditáveis.',
+    tags: ['IA aplicada', 'Legislação', 'Arquitetura em evolução'],
+    link: 'https://github.com/gaab0418'
   }
 ];
 
 export const contactData = {
   location: 'Brasil • Santa Catarina',
-  availability: 'Pronto para colaborar em projetos de IA, integrações e automações',
+  availability: 'Pronto para colaborar em projetos de backend, integrações e automações',
   items: [
     { icon: 'fa-brands fa-linkedin', text: 'LinkedIn', link: 'https://www.linkedin.com/in/gabriel-chiarelli-sz' },
     { icon: 'fa-brands fa-github', text: 'GitHub', link: 'https://github.com/gaab0418' },
@@ -199,9 +224,9 @@ export const contactData = {
 };
 
 export const seoData = {
-  title: 'Gabriel Chiarelli • Back-end & Automation Engineer',
+  title: 'Gabriel Chiarelli • Backend Engineer & Integrations',
   description:
-    'Portfólio do Gabriel Chiarelli: especialista em back-end, IA aplicada e automações com N8N. Integrações inteligentes, APIs escaláveis e experiências digitais modernas.',
+    'Portfólio do Gabriel Chiarelli: especialista em backend, integrações com Protheus e APIs escaláveis com Oracle, MySQL e PostgreSQL.',
   url: 'https://gaab0418.github.io/portifolio',
   image: 'https://avatars.githubusercontent.com/u/108583444?v=4'
 };

@@ -48,8 +48,8 @@ export default function RecentWorks() {
     <StyledSection component="section" id="recent-works">
       <SectionHeading
         pill="Projetos"
-        title="Coisas que construí para provar que IA + automação é agora"
-        description="Seleção de projetos que mostram minha forma de pensar integrações, APIs e automações inteligentes."
+        title="Integrações, APIs e produtos que construí"
+        description="Selecionei os projetos mais completos do meu GitHub para mostrar como conecto Protheus, serviços externos e experiências web."
       />
 
       <StyledShowcase>

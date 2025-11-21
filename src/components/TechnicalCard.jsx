@@ -2,7 +2,6 @@ import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import Card from './common/Card';
-import Badge from './common/Badge';
 import Tag from './common/Tag';
 import { cardVariants, viewportConfigMore } from '../utils/animations';
 
@@ -74,7 +73,7 @@ const StyledFooter = styled(Box)(({ theme }) => ({
   },
 }));
 
-export default function IACard({ item, index }) {
+export default function TechnicalCard({ item, index }) {
   return (
     <motion.article
       variants={cardVariants}
@@ -85,7 +84,7 @@ export default function IACard({ item, index }) {
     >
       <StyledCard variant="ia">
         <StyledBadge>
-          <i className="fa-solid fa-sparkles"></i> {item.badge}
+          <i className="fa-solid fa-terminal"></i> {item.badge}
         </StyledBadge>
 
         <StyledIcon>

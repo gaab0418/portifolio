@@ -48,8 +48,8 @@ export default function Experience() {
     <StyledSection component="section" id="experience" className="timeline experience">
       <SectionHeading
         pill="Experiência"
-        title="Transformando operações com IA e automações reais"
-        description="Experiências que moldaram minha visão sobre integrações e sobre como a tecnologia pode liberar pessoas para fazer trabalhos mais criativos."
+        title="Transformando operações com integrações reais"
+        description="Experiências que moldaram minha visão sobre APIs, Protheus e como a tecnologia libera pessoas para focar no trabalho crítico."
       />
       <StyledContainer>
         {experienceData.map((item, index) => (

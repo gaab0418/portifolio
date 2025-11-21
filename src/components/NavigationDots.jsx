@@ -1,6 +1,6 @@
 import useNavigationDots from '../hooks/useNavigationDots';
 
-const sections = ['hero', 'ia-automation', 'sobre', 'skills', 'recent-works', 'experience', 'education', 'contact'];
+const sections = ['hero', 'technical-highlights', 'sobre', 'skills', 'recent-works', 'experience', 'education', 'contact'];
 
 export default function NavigationDots() {
   const { activeSection, scrollToSection } = useNavigationDots(sections);
