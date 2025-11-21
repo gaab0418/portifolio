@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react';
 
 export default function useNavigationDots(sections) {
-  const [activeSection, setActiveSection] = useState('sobre');
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + (window.innerHeight / 3);
 
       // Check if at the top
-      if (window.scrollY < 100) {
-        setActiveSection('sobre');
+      if (window.scrollY < 120) {
+        setActiveSection('hero');
         return;
       }
 
       // Check each section
-      const sectionElements = sections.map(id => document.getElementById(id));
+      const sectionElements = sections.map((id) => document.getElementById(id));
       
       for (let i = 0; i < sectionElements.length; i++) {
         const section = sectionElements[i];
@@ -48,7 +48,7 @@ export default function useNavigationDots(sections) {
   const scrollToSection = (sectionId) => {
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
-      const offset = sectionId === 'sobre' ? 0 : 100;
+      const offset = sectionId === 'hero' ? 0 : 80;
       window.scrollTo({
         top: targetSection.offsetTop - offset,
         behavior: 'smooth'

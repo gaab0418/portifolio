@@ -1,23 +1,41 @@
-import useTypewriter from '../hooks/useTypewriter';
+import { motion } from 'framer-motion';
 import { aboutData } from '../data/portfolioData';
 
 export default function About() {
-  const { displayText } = useTypewriter(aboutData.name, 100, 500);
-
   return (
     <section id="sobre" className="sobre">
-      <div className="sobre-content">
-        <h1>{displayText}</h1>
-        <h3>{aboutData.role}</h3>
-        {aboutData.description.map((paragraph, index) => (
-          <p key={index}>{paragraph}</p>
-        ))}
+      <div className="section-heading">
+        <span className="section-pill">Sobre</span>
+        <h2>{aboutData.title}</h2>
       </div>
-      <img
-        src={aboutData.profileImage}
-        alt={`Perfil de ${aboutData.name}`}
-        className="profile-image"
-      />
+
+      <div className="sobre-grid">
+        <motion.div
+          className="sobre-texts"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+        >
+          {aboutData.paragraphs.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </motion.div>
+
+        <motion.div
+          className="sobre-highlights"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ delay: 0.1 }}
+        >
+          {aboutData.highlights.map((highlight) => (
+            <div key={highlight.label} className="sobre-highlight">
+              <span>{highlight.label}</span>
+              <strong>{highlight.value}</strong>
+            </div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 }

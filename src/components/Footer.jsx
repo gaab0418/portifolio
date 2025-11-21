@@ -3,7 +3,7 @@ export default function Footer() {
 
   return (
     <footer id="footer">
-      © {currentYear} Gabriel Chiarelli - Desenvolvedor Back-End. Todos os direitos reservados.
+      © {currentYear} Gabriel Chiarelli — IA, automação e integrações inteligentes.
     </footer>
   );
 }

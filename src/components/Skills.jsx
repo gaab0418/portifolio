@@ -1,64 +1,50 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
+import { motion } from 'framer-motion';
 import { skillsData } from '../data/portfolioData';
 
-function SkillTag({ icon, text, delay }) {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, delay);
-
-    return () => clearTimeout(timer);
-  }, [delay]);
-
-  return (
-    <div 
-      className="skill-tag"
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(10px)',
-        transition: 'all 0.3s ease'
-      }}
-    >
-      <i className={icon}></i> {text}
-    </div>
-  );
-}
-
 export default function Skills() {
-  const [activeCategory, setActiveCategory] = useState('Linguagens');
-  const categories = Object.keys(skillsData);
+  const categories = useMemo(() => Object.keys(skillsData), []);
+  const [activeCategory, setActiveCategory] = useState(categories[0]);
 
   const categoryIcons = {
-    'Linguagens': 'fa-solid fa-code',
-    'Bancos de Dados': 'fa-solid fa-database',
-    'Ferramentas': 'fa-solid fa-tools',
-    'IA/Automação': 'fa-solid fa-robot'
+    'IA & Automação': 'fa-solid fa-robot',
+    'Back-end & APIs': 'fa-solid fa-code',
+    'Data & Infra': 'fa-solid fa-database',
+    'Ferramentas & UX': 'fa-solid fa-wand-magic-sparkles'
   };
 
   return (
     <section id="skills" className="skills">
-      <h2><i className="fa-solid fa-code-branch"></i> Habilidades</h2>
+      <div className="section-heading">
+        <span className="section-pill">Skills</span>
+        <h2>Stack favorita para criar experiências inteligentes</h2>
+        <p>Escolha uma categoria para ver as skills que uso diariamente para construir integrações inteligentes.</p>
+      </div>
+
       <div className="skill-categories">
         {categories.map((category) => (
-          <div
+          <button
             key={category}
             className={`skill-category ${activeCategory === category ? 'active' : ''}`}
             onClick={() => setActiveCategory(category)}
+            type="button"
           >
             <i className={categoryIcons[category]}></i> {category}
-          </div>
+          </button>
         ))}
       </div>
+
       <div className="skill-tags">
         {skillsData[activeCategory].map((skill, index) => (
-          <SkillTag 
-            key={`${activeCategory}-${index}`}
-            icon={skill.icon}
-            text={skill.text}
-            delay={index * 50}
-          />
+          <motion.div
+            key={`${activeCategory}-${skill.text}`}
+            className="skill-tag"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.05 }}
+          >
+            <i className={skill.icon}></i> {skill.text}
+          </motion.div>
         ))}
       </div>
     </section>

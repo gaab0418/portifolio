@@ -2,10 +2,10 @@ import { statsData } from '../data/portfolioData';
 
 export default function Stats() {
   return (
-    <section id="stats">
+    <section id="stats" className="stats-section">
       <div className="stats">
-        {statsData.map((stat, index) => (
-          <div key={index} className="stat">
+        {statsData.map((stat) => (
+          <div key={stat.label} className="stat">
             <span className="stat-number">{stat.number}</span>
             <span className="stat-label">{stat.label}</span>
           </div>
